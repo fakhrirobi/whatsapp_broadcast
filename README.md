@@ -8,5 +8,6 @@ Step step by step installation :
 3.  Now you have to download my code. Go to my github repository https://github.com/fakhrirobi/whatsapp_broadcast and click Code and click Download ZIP 
 4. Save the folder in your Desktop and extract the ZIP file
 5. open the whatsapp_broadcast folder and you will found requirement.txt 
-6. 
+6. copy the path of requirement.txt 
+6. go to cmd by clicking WIndows button + R and paste the code pip install 
 
