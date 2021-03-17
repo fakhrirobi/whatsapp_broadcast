@@ -20,8 +20,10 @@ Step step by step installation :
 
 7. Go to cmd by clicking WIndows button + R and enter this code
 ```cmd
-   cd /d path to requirements.txt
-   example : cd /d C:\Users\Fakhri Robi Aulia\Desktop\whatsapp_broadcast-main\whatsapp_broadcast-main
+    cd /d path to requirements.txt
+
+    example :
+    cd /d C:\Users\Fakhri Robi Aulia\Desktop\whatsapp_broadcast-main\whatsapp_broadcast-main
 ```
 8. Install all packages in requirements.txt by  copying and pasting this following code
 ```python
