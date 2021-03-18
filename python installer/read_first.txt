@@ -1,0 +1,11 @@
+#Python Installation 
+
+if your pc is 32 bit : run python-3.8.5.exe 
+
+if your pc is 64 bit : run python-3.8.5.exe
+
+how to check whether your pc is 64 bit or 32 bit
+
+https://winpoin.com/cara-mengetahui-prosesor-32-bit-atau-64-bit-di-windows/
+
+https://support.microsoft.com/en-us/office/determine-whether-your-computer-is-running-a-32-bit-version-or-64-bit-version-of-the-windows-operating-system-aac162a1-0cb3-46f2-888f-2f22897396ce
