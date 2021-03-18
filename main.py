@@ -73,7 +73,7 @@ class MainMenu(Frame):
 		label.grid(row = 0, column = 1, padx = 10, pady = 10) 
 
 		button1 = Button(self, text ='Broadcast Message Only', width=30,command = lambda : controller.show_frame(Message_Only),font=NORMALFONT) 
-		button2 = Button(self,text='Broadcast yang belum rekon', width=30,command= lambda : controller.show_frame(Message_With_Attachment),font=NORMALFONT)
+		button2 = Button(self,text='Broadcast Message with Attachments', width=30,command= lambda : controller.show_frame(Message_With_Attachment),font=NORMALFONT)
 
 		# putting the button in its place by 
 		# using grid 
@@ -95,8 +95,7 @@ class Message_Only(Frame):
 		
 
 		def save_record() : 
-			global bulan_rekon,message
-			bulan_rekon = bulan_entry.get()
+			global message
 			message = message_entry.get()
 
 		#broadcast_functionality Label 
@@ -106,13 +105,12 @@ class Message_Only(Frame):
 		message_entry = Entry(self,text='Silahkan input pesan broadcast')
 		file_path = Button(self,text='Silahkan pilih file tujuan broadcast',command=path_class.file_path,font=NORMALFONT)
 		save_record = Button(self,text='Simpan Semua Input',command=save_record,font=NORMALFONT)
-		execute_button = Button(self,text='Jalankan Broadcast',command=broadcast_functionality().fix_rekon,font=NORMALFONT)
+		execute_button = Button(self,text='Jalankan Broadcast',command=broadcast_functionality().sent_messages_without_attachment,font=NORMALFONT)
 
 		
 		#grid a file 
-		bulan_label.grid(row=0,column=0,sticky=W+E)
+
 		message_label.grid(row=1,column=0,sticky=W+E)
-		bulan_entry.grid(row=0,column=1,sticky=W+E)
 		message_entry.grid(row=1,column=1,sticky=W+E)
 		file_path.grid(row=3,column=1,sticky=W+E)
 		save_record.grid(row=4,column=1,sticky=W+E)
@@ -138,8 +136,7 @@ class Message_With_Attachment(Frame):
 		
 
 		def save_record() : 
-			global bulan_rekon,message
-			bulan_rekon = bulan_entry.get()
+			global message
 			message = message_entry.get()
 
 		#broadcast_functionality Label 
@@ -148,7 +145,7 @@ class Message_With_Attachment(Frame):
 		directory_label = Button(self,text='Please Choose Attachment File',command=path_class.directory,font=NORMALFONT)
 		file_path = Button(self,text='Choose Recipient List File',command=path_class.file_path,font=NORMALFONT)
 		save_record = Button(self,text='Save All Records',command=save_record,font=NORMALFONT)
-		execute_button = Button(self,text='Run Broadcast',command=broadcast_functionality().fix_rekon,font=NORMALFONT)
+		execute_button = Button(self,text='Run Broadcast',command=broadcast_functionality().sent_messages_with_attachment,font=NORMALFONT)
 
 		
 		#grid a file 
