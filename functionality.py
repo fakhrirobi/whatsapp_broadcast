@@ -26,7 +26,7 @@ class Path() :
 class broadcast_functionality() :
 
 	def sent_messages_without_attachment(self) : 
-		user_name = pd.read_excel(path[0])
+		user_name = pd.read_excel(path,engine='openpyxl')
 		user_name = [str(x) for x in user_name['RECIPIENT']]
 
 		wa_bot = wa_web()
@@ -41,7 +41,7 @@ class broadcast_functionality() :
 				print(f'{user} does not exists')  
 
 	def sent_messages_with_attachment(self) : 
-		user_name = pd.read_excel(path[0])
+		user_name = pd.read_excel(path,engine='openpyxl')
 		user_name = [str(x) for x in user_name['RECIPIENT']]
 
 		wa_bot = wa_web()
@@ -51,7 +51,7 @@ class broadcast_functionality() :
 		for user in user_name :
 			try : 
 
-				file_location = dir_path[0]
+				file_location = attachment
 				wa_bot.msg_document(user,message,file_location) 
 			except InvalidArgumentException : 
 				continue
