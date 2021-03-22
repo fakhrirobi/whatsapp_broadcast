@@ -10,17 +10,17 @@ class Path() :
 
 	def file_path(self) : 
 		global path
-		file_path = filedialog.askopenfilename(title='Silahkan pilih file monitoring satker yang rekoonya perlu diperbaiki')
+		file_path = filedialog.askopenfilename(title='Please Select File That Contains RECIPIENT LIST')
 		path = file_path
 		return path
 	def directory(self) : 
 		global dir_path 
-		directory_path = filedialog.askdirectory(title='Silahkan pilih folder tempat menyimpan dok perbaikan ')
+		directory_path = filedialog.askdirectory(title='Please Select Location Where Contain List of Files')
 		dir_path = [directory_path]
 		return dir_path
 	def attachment(self) :
 		global attachment_path 
-		att_path = filedialog.askopenfilename(title='Silahkan pilih file lampiran ')
+		att_path = filedialog.askopenfilename(title='Please Select Attachment File')
 		attachment_path = att_path
 
 class broadcast_functionality() :
