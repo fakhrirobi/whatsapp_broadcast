@@ -1,6 +1,14 @@
 from tkinter import filedialog
 import pandas as pd
 from scrapper import wa_web
+import time
+import selenium 
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import time
+from selenium.common.exceptions import NoSuchElementException,InvalidArgumentException
+from time import sleep 
+import os 
 
 
 
@@ -25,7 +33,7 @@ class Path() :
 
 class broadcast_functionality() :
 
-	def sent_messages_without_attachment(self) : 
+	def sent_messages_without_attachment(self,message,path) : 
 		user_name = pd.read_excel(path,engine='openpyxl')
 		user_name = [str(x) for x in user_name['RECIPIENT']]
 
@@ -40,7 +48,7 @@ class broadcast_functionality() :
 				continue
 				print(f'{user} does not exists')  
 
-	def sent_messages_with_attachment(self) : 
+	def sent_messages_with_attachment(self,message,path,attachment) : 
 		user_name = pd.read_excel(path,engine='openpyxl')
 		user_name = [str(x) for x in user_name['RECIPIENT']]
 
