@@ -99,12 +99,13 @@ class Message_Only(Frame):
 			message = message_entry.get()
 
 		#broadcast_functionality Label 
+		broadcast = broadcast_functionality(message)
 
 		message_label = Label(self,text='Please Input Messages',font=NORMALFONT)
 		message_entry = Entry(self,text='Please Input Messages')
 		file_path = Button(self,text='Choose Recipient List File',command=path_class.file_path,font=NORMALFONT)
 		save_record = Button(self,text='Save All Records',command=save_record,font=NORMALFONT)
-		execute_button = Button(self,text='Run Broadcast',command=broadcast_functionality().sent_messages_without_attachment,font=NORMALFONT)
+		execute_button = Button(self,text='Run Broadcast',command= lambda : broadcast_functionality().sent_messages_without_attachment(message,path),font=NORMALFONT)
 
 		
 		#grid a file 
@@ -141,10 +142,10 @@ class Message_With_Attachment(Frame):
 		#broadcast_functionality Label 
 		message_label = Label(self,text='Please Input Messages',font=NORMALFONT)
 		message_entry = Entry(self,text='Please Input Messages')
-		directory_label = Button(self,text='Please Choose Attachment File',command=path_class.directory,font=NORMALFONT)
+		directory_label = Button(self,text='Please Choose Attachment File',command=path_class.attachment,font=NORMALFONT)
 		file_path = Button(self,text='Choose Recipient List File',command=path_class.file_path,font=NORMALFONT)
 		save_record = Button(self,text='Save All Records',command=save_record,font=NORMALFONT)
-		execute_button = Button(self,text='Run Broadcast',command=broadcast_functionality().sent_messages_with_attachment,font=NORMALFONT)
+		execute_button = Button(self,text='Run Broadcast',command=lambda : broadcast_functionality().sent_messages_with_attachment(message,path,attachment),font=NORMALFONT)
 
 		
 		#grid a file 
