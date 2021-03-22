@@ -9,7 +9,7 @@ from functionality import Path,broadcast_functionality
 from scrapper import wa_web
 
 
-
+################## If you want to install this font, just download from https://fonts.google.com/specimen/Montserrat
 LARGEFONT =("Montserrat", 20) 
 NORMALFONT = ("Montserrat", 10)
 
@@ -66,7 +66,7 @@ class MainMenu(Frame):
 		
 		
 		# label of frame Layout 2 
-		label = Label(self, text ="MainMenu", font = LARGEFONT) 
+		label = Label(self, text ="Multi Purpose Whatsapp Broadcaster", font = LARGEFONT) 
 		
 		# putting the grid in its place by using 
 		# grid 
@@ -100,12 +100,11 @@ class Message_Only(Frame):
 
 		#broadcast_functionality Label 
 
-		message_label = Label(self,text='Silahkan Input pesan',font=NORMALFONT)
-		bulan_entry = Entry(self,text='Input Bulan Rekonsiliasi') 
-		message_entry = Entry(self,text='Silahkan input pesan broadcast')
-		file_path = Button(self,text='Silahkan pilih file tujuan broadcast',command=path_class.file_path,font=NORMALFONT)
-		save_record = Button(self,text='Simpan Semua Input',command=save_record,font=NORMALFONT)
-		execute_button = Button(self,text='Jalankan Broadcast',command=broadcast_functionality().sent_messages_without_attachment,font=NORMALFONT)
+		message_label = Label(self,text='Please Input Messages',font=NORMALFONT)
+		message_entry = Entry(self,text='Please Input Messages')
+		file_path = Button(self,text='Choose Recipient List File',command=path_class.file_path,font=NORMALFONT)
+		save_record = Button(self,text='Save All Records',command=save_record,font=NORMALFONT)
+		execute_button = Button(self,text='Run Broadcast',command=broadcast_functionality().sent_messages_without_attachment,font=NORMALFONT)
 
 		
 		#grid a file 
