@@ -1,7 +1,7 @@
 
 Multi Purpose Whatsapp Broadcast: 
 
-PURPOSE : Are u tired sending the messages all over time to your clients ? dont worry, i hope this bot could reduce broadcasting time and doing something more worthy 
+Are You  tired sending the messages all over time to your clients ? dont worry, i hope this bot could reduce broadcasting time and doing something more worthy jobs.
 
 ##Step  by Step  Installation  : 
 1. Clone this repository or download zip file of this project by clicking download code  button and choose *Download ZIP*.
@@ -56,8 +56,39 @@ pip install -r requirements.txt
    ```
    ![installation processs.gif](assets/path_to_whatsapp_broadcast.png)
    ![installation processs.gif](assets\cmd_screenshot_path_to_whatsapp_broadcast_folder.png)
-3. Copy and Paste this following code :
+
+
+3. Create an Excel file (.xlsx) that contains "RECIPIENT" column, and save it somewhere else, for example : 
+   ![installation processs.gif](assets\RECIPIENT_LIST.png)
+   
+4. To Run The Application ,copy  and paste this following code :
    ```python 
-   python wa_broadcast.py
+   python main.py
    ```
-4. 
+5. The Application Interface will appear : 
+   ![installation processs.gif](assets\interface1.png)
+6. 
+      A. Click Broadcast Message Only if you want to Broadcast Message Only, the steps :
+         1.  Input the Messages you want to Broadcast 
+            ![installation processs.gif](assets\broadcast_message_only1.png)
+         2.  Click Choose Recipient List File, and FileExplorer Dialog Will Appear
+            ![installation processs.gif](assets\broadcast_message_only2.png)
+         3.  Click Save All Records
+            ![installation processs.gif](assets\broadcast_message_only1.png)
+         4.  Click Save All Run Broadcast
+            ![installation processs.gif](assets\broadcast_message_only1.png)
+
+   
+      B. If You Want to Add Attachment just Click         Broadcast Message with Attachments : 
+         1.  Input the Messages you want to Broadcast 
+            ![installation processs.gif](assets\broadcast_attachment_1.png)
+         2. Click Please Choose Attachment File and FileExplorer Dialog Will Appear
+            ![installation processs.gif](assets\broadcast_attachment_2.png)
+         3.  Click Choose Recipient List File, and FileExplorer Dialog Will Appear
+            ![installation processs.gif](assets\broadcast_attachment_3.png)
+         4.  Click Save All Records
+         5.  Click Save All Run Broadcast
+            ![installation processs.gif](assets\broadcast_attachment_4.png)
+         6. 
+
+7. 
