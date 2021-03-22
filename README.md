@@ -3,7 +3,7 @@ Multi Purpose Whatsapp Broadcast:
 
 Are You  tired sending the messages all over time to your clients ? dont worry, i hope this bot could reduce broadcasting time and doing something more worthy jobs.
 
-##Step  by Step  Installation  : 
+## Step  by Step  Installation  : 
 1. Clone this repository or download zip file of this project by clicking download code  button and choose *Download ZIP*.
 ```
 git clone https://github.com/fakhrirobi/whatsapp_broadcast.git 
