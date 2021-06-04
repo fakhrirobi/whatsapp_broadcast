@@ -99,7 +99,7 @@ class Message_Only(Frame):
 			message = message_entry.get()
 
 		#broadcast_functionality Label 
-		broadcast = broadcast_functionality(message)
+		
 
 		message_label = Label(self,text='Please Input Messages',font=NORMALFONT)
 		message_entry = Entry(self,text='Please Input Messages')
