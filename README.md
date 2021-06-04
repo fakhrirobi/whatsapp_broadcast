@@ -25,7 +25,7 @@ git clone https://github.com/fakhrirobi/whatsapp_broadcast.git
 
 6.  Copy the path of requirements.txt file 
 
-![copying path to requirements.txt](assets/path_to_requirements.txt.png) 
+![copying path to requirements.txt](https://github.com/fakhrirobi/whatsapp_broadcast/blob/main/assets/path_to_requirements.txt.png) 
 
 8. Go to cmd by clicking WIndows button + R and enter this code
 ```cmd
@@ -41,7 +41,7 @@ pip install -r requirements.txt
 
 
  9. Wait for the installation to finish.
-![installation processs.gif](assets/path_to_requirements.txt.png)
+![installation processs.gif](https://github.com/fakhrirobi/whatsapp_broadcast/blob/main/assets/path_to_requirements.txt.png)
 
 ## Usage Documenation :
 
@@ -54,41 +54,41 @@ pip install -r requirements.txt
    ```
    cd /d C:\Users\Fakhri Robi Aulia\Desktop\whatsapp_broadcast-main
    ```
-   ![installation processs.gif](assets/path_to_whatsapp_broadcast.png)
-   ![installation processs.gif](assets\cmd_screenshot_path_to_whatsapp_broadcast_folder.png)
+   ![installation processs.gif](https://github.com/fakhrirobi/whatsapp_broadcast/blob/main/assets/path_to_whatsapp_broadcast.png)
+   ![installation processs.gif](https://github.com/fakhrirobi/whatsapp_broadcast/blob/main/assets/cmd_screenshot_path_to_whatsapp_broadcast_folder.png)
 
 
 3. Create an Excel file (.xlsx) that contains "RECIPIENT" column, and save it somewhere else, for example : 
-   ![installation processs.gif](assets\RECIPIENT_LIST.png)
+   ![installation processs.gif](https://github.com/fakhrirobi/whatsapp_broadcast/blob/main/assets/RECIPIENT_LIST.png)
    
 4. To Run The Application ,copy  and paste this following code :
    ```python 
    python main.py
    ```
 5. The Application Interface will appear : 
-   ![installation processs.gif](assets\interface1.png)
+   ![installation processs.gif](https://github.com/fakhrirobi/whatsapp_broadcast/blob/main/assets/interface1.png)
 6. 
       A. Click Broadcast Message Only if you want to Broadcast Message Only, the steps :
          1.  Input the Messages you want to Broadcast 
-            ![installation processs.gif](assets\broadcast_message_only1.png)
+            ![installation processs.gif](https://github.com/fakhrirobi/whatsapp_broadcast/blob/main/assets/broadcast_message_only1.png)
          2.  Click Choose Recipient List File, and FileExplorer Dialog Will Appear
-            ![installation processs.gif](assets\broadcast_message_only2.png)
+            ![installation processs.gif](https://github.com/fakhrirobi/whatsapp_broadcast/blob/main/assets/broadcast_message_only2.png)
          3.  Click Save All Records
-            ![installation processs.gif](assets\broadcast_message_only1.png)
+            ![installation processs.gif](https://github.com/fakhrirobi/whatsapp_broadcast/blob/main/assets/broadcast_message_only1.png)
          4.  Click Save All Run Broadcast
-            ![installation processs.gif](assets\broadcast_message_only1.png)
+            ![installation processs.gif](https://github.com/fakhrirobi/whatsapp_broadcast/blob/main/assets/broadcast_message_only1.png)
 
    
       B. If You Want to Add Attachment just Click         Broadcast Message with Attachments : 
          1.  Input the Messages you want to Broadcast 
-            ![installation processs.gif](assets\broadcast_attachment_1.png)
+            ![installation processs.gif](https://github.com/fakhrirobi/whatsapp_broadcast/blob/main/assets/broadcast_attachment_1.png)
          2. Click Please Choose Attachment File and FileExplorer Dialog Will Appear
-            ![installation processs.gif](assets\broadcast_attachment_2.png)
+            ![installation processs.gif](https://github.com/fakhrirobi/whatsapp_broadcast/blob/main/assets/broadcast_attachment_2.png)
          3.  Click Choose Recipient List File, and FileExplorer Dialog Will Appear
-            ![installation processs.gif](assets\broadcast_attachment_3.png)
+            ![installation processs.gif](https://github.com/fakhrirobi/whatsapp_broadcast/blob/main/assets/broadcast_attachment_3.png)
          4.  Click Save All Records
          5.  Click Save All Run Broadcast
-            ![installation processs.gif](assets\broadcast_attachment_4.png)
+            ![installation processs.gif](https://github.com/fakhrirobi/whatsapp_broadcast/blob/main/assets/broadcast_attachment_1.png)
          6. 
 
 7. 
