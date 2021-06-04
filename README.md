@@ -14,60 +14,34 @@ git clone https://github.com/fakhrirobi/whatsapp_broadcast.git
    
 3. Open up folder python installer, *if your pc is 32 bit : run python-3.8.5.exe if 64 bit run python-3.8.5-amd64.exe*, and then follow the python installation instruction.
 
-4. After python installed, Then Click Windows Button + R to run Command Prompt (CMD) and paste this code  
-   ```python
-   python get-pip.py
-   ````
    
 
-5. Go to whatsapp_broadcast folder again, you will find requirements.txt file.
-
-
-6.  Copy the path of requirements.txt file 
-
-![copying path to requirements.txt](https://github.com/fakhrirobi/whatsapp_broadcast/blob/main/assets/path_to_requirements.txt.png) 
-
-8. Go to cmd by clicking WIndows button + R and enter this code
-```cmd
-    cd /d path to requirements.txt
-
-    example :
-    cd /d C:\Users\Fakhri Robi Aulia\Desktop\whatsapp_broadcast-main\whatsapp_broadcast-main
-```
-9. Install all packages in requirements.txt by  copying and pasting this following code
+4. Go to folder whatsapp_broadcast and run cmd directly from it 
+    ![cmd.gif](https://github.com/fakhrirobi/whatsapp_broadcast/blob/main/assets/cmd%20pip.gif)
+5. Install all packages in requirements.txt by  copying and pasting this following code
 ```python
 pip install -r requirements.txt
 ```
 
 
- 9. Wait for the installation to finish.
-![installation processs.gif](https://github.com/fakhrirobi/whatsapp_broadcast/blob/main/assets/path_to_requirements.txt.png)
+ 8. Wait for the installation to finish.
+
 
 ## Usage Documenation :
 
-1. Click Windows Button + R to open up Command Prompt (CMD).
-2. Copy and Paste this code :
-   ```
-   cd /d path to whatsapp_broadcast folder 
-   ```
-   example : 
-   ```
-   cd /d C:\Users\Fakhri Robi Aulia\Desktop\whatsapp_broadcast-main
-   ```
-   ![installation processs.gif](https://github.com/fakhrirobi/whatsapp_broadcast/blob/main/assets/path_to_whatsapp_broadcast.png)
-   ![installation processs.gif](https://github.com/fakhrirobi/whatsapp_broadcast/blob/main/assets/cmd_screenshot_path_to_whatsapp_broadcast_folder.png)
 
 
-3. Create an Excel file (.xlsx) that contains "RECIPIENT" column, and save it somewhere else, for example : 
+
+1. Create an Excel file (.xlsx) that contains "RECIPIENT" column, and save it somewhere else, for example : 
    ![installation processs.gif](https://github.com/fakhrirobi/whatsapp_broadcast/blob/main/assets/RECIPIENT_LIST.png)
    
-4. To Run The Application ,copy  and paste this following code :
+2. To Run The Application ,copy  and paste this following code in cmd  :
    ```python 
    python main.py
    ```
-5. The Application Interface will appear : 
+3. The Application Interface will appear : 
    ![installation processs.gif](https://github.com/fakhrirobi/whatsapp_broadcast/blob/main/assets/interface1.png)
-6. 
+4. 
       A. Click Broadcast Message Only if you want to Broadcast Message Only, the steps :
          1.  Input the Messages you want to Broadcast 
             ![installation processs.gif](https://github.com/fakhrirobi/whatsapp_broadcast/blob/main/assets/broadcast_message_only1.png)
@@ -91,4 +65,4 @@ pip install -r requirements.txt
             ![installation processs.gif](https://github.com/fakhrirobi/whatsapp_broadcast/blob/main/assets/broadcast_attachment_1.png)
          6. 
 
-7. 
+         7. 
