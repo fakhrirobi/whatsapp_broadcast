@@ -10,7 +10,11 @@ import os
 
 current_path = os.getcwd()
 webdriver_path = os.path.join(current_path,'chromedriver\chromedriver.exe')
-WEBDRIVER = webdriver.Chrome(webdriver_path)
+options = webdriver.ChromeOptions()
+options.add_argument('--user-data-dir=./User_Data')
+
+WEBDRIVER = webdriver.Chrome(webdriver_path,chrome_options=options)
+
 class wa_web() :
 	def __init__(self,Chrome=WEBDRIVER) :
 		self.Chrome = WEBDRIVER
