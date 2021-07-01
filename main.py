@@ -6,7 +6,6 @@ import pandas as pd
 import numpy as np
 
 from functionality import Path,broadcast_functionality
-from scrapper import wa_web
 
 
 ################## If you want to install this font, just download from https://fonts.google.com/specimen/Montserrat
@@ -97,6 +96,7 @@ class Message_Only(Frame):
 		def save_record() : 
 			global message
 			message = message_entry.get()
+			broadcast_functionality().sent_messages_without_attachment(message)
 
 		#broadcast_functionality Label 
 		
@@ -105,7 +105,7 @@ class Message_Only(Frame):
 		message_entry = Entry(self,text='Please Input Messages')
 		file_path = Button(self,text='Choose Recipient List File',command=path_class.file_path,font=NORMALFONT)
 		save_record = Button(self,text='Save All Records',command=save_record,font=NORMALFONT)
-		execute_button = Button(self,text='Run Broadcast',command= lambda : broadcast_functionality().sent_messages_without_attachment(message,path),font=NORMALFONT)
+		
 
 		
 		#grid a file 
@@ -114,7 +114,7 @@ class Message_Only(Frame):
 		message_entry.grid(row=1,column=1,sticky=W+E)
 		file_path.grid(row=3,column=1,sticky=W+E)
 		save_record.grid(row=4,column=1,sticky=W+E)
-		execute_button.grid(row=5,column=1,sticky=W+E)
+		
 
 
 
@@ -133,19 +133,18 @@ class Message_With_Attachment(Frame):
 		Frame.__init__(self, parent) 
 	
 		path_class = Path()
-		
-
 		def save_record() : 
 			global message
 			message = message_entry.get()
+			broadcast_functionality().sent_messages_with_attachment(message)
 
 		#broadcast_functionality Label 
 		message_label = Label(self,text='Please Input Messages',font=NORMALFONT)
 		message_entry = Entry(self,text='Please Input Messages')
-		directory_label = Button(self,text='Please Choose Attachment File',command=path_class.attachment,font=NORMALFONT)
+		directory_label = Button(self,text='Please Choose Attachment File',command=lambda att_path : path_class.attachment(attpath),font=NORMALFONT)
 		file_path = Button(self,text='Choose Recipient List File',command=path_class.file_path,font=NORMALFONT)
-		save_record = Button(self,text='Save All Records',command=save_record,font=NORMALFONT)
-		execute_button = Button(self,text='Run Broadcast',command=lambda : broadcast_functionality().sent_messages_with_attachment(message,path,attachment),font=NORMALFONT)
+		save_record = Button(self,text='Save All Records and Execute',command=save_record,font=NORMALFONT)
+
 
 		
 		#grid a file 
@@ -154,7 +153,6 @@ class Message_With_Attachment(Frame):
 		directory_label.grid(row=2,column = 1,sticky=W+E)
 		file_path.grid(row=3,column=1,sticky=W+E)
 		save_record.grid(row=4,column=1,sticky=W+E)
-		execute_button.grid(row=5,column=1,sticky=W+E)
 
 
 

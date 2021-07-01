@@ -15,26 +15,29 @@ import os
 
 
 class Path() :
-
+	def __init__(self) :
+		pass
 	def file_path(self) : 
 		global path
 		file_path = filedialog.askopenfilename(title='Please Select File That Contains RECIPIENT LIST')
-		path = file_path
+		path =file_path
 		return path
 	def directory(self) : 
 		global dir_path 
 		directory_path = filedialog.askdirectory(title='Please Select Location Where Contain List of Files')
-		dir_path = [directory_path]
+		dir_path = directory_path
 		return dir_path
 	def attachment(self) :
 		global attachment_path 
 		att_path = filedialog.askopenfilename(title='Please Select Attachment File')
 		attachment_path = att_path
+		return attachment_path
 
 class broadcast_functionality() :
 
-	def sent_messages_without_attachment(self,message,path) : 
-		user_name = pd.read_excel(path,engine='openpyxl')
+	def sent_messages_without_attachment(self,message) : 
+		print(path)
+		user_name = pd.read_excel(path)
 		user_name = [str(x) for x in user_name['RECIPIENT']]
 
 		wa_bot = wa_web()
@@ -48,7 +51,7 @@ class broadcast_functionality() :
 				continue
 				print(f'{user} does not exists')  
 
-	def sent_messages_with_attachment(self,message,path,attachment) : 
+	def sent_messages_with_attachment(self,message) : 
 		user_name = pd.read_excel(path,engine='openpyxl')
 		user_name = [str(x) for x in user_name['RECIPIENT']]
 
@@ -59,7 +62,7 @@ class broadcast_functionality() :
 		for user in user_name :
 			try : 
 
-				file_location = attachment
+				file_location = attachment_path
 				wa_bot.msg_document(user,message,file_location) 
 			except InvalidArgumentException : 
 				continue
