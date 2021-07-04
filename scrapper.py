@@ -10,8 +10,7 @@ import os
 
 current_path = os.getcwd()
 webdriver_path = os.path.join(current_path,'chromedriver\chromedriver.exe')
-options = webdriver.ChromeOptions()
-options.add_argument('--user-data-dir=./User_Data')
+
 
 WEBDRIVER = webdriver.Chrome(webdriver_path,chrome_options=options)
 
