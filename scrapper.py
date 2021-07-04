@@ -12,7 +12,7 @@ current_path = os.getcwd()
 webdriver_path = os.path.join(current_path,'chromedriver\chromedriver.exe')
 
 
-WEBDRIVER = webdriver.Chrome(webdriver_path,chrome_options=options)
+WEBDRIVER = webdriver.Chrome(webdriver_path)
 
 class wa_web() :
 	def __init__(self,Chrome=WEBDRIVER) :
