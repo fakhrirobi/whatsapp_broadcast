@@ -103,8 +103,8 @@ class Message_Only(Frame):
 
 		message_label = Label(self,text='Please Input Messages',font=NORMALFONT)
 		message_entry = Entry(self,text='Please Input Messages')
-		file_path = Button(self,text='Choose Recipient List File',command=path_class.file_path,font=NORMALFONT)
-		save_record = Button(self,text='Save All Records',command=save_record,font=NORMALFONT)
+		file_path = Button(self,wtext='Choose Recipient List File',command=path_class.file_path,font=NORMALFONT)
+		save_record = Button(self,text='Save All Records and Execute',command=save_record,font=NORMALFONT)
 		
 
 		
@@ -141,7 +141,7 @@ class Message_With_Attachment(Frame):
 		#broadcast_functionality Label 
 		message_label = Label(self,text='Please Input Messages',font=NORMALFONT)
 		message_entry = Entry(self,text='Please Input Messages')
-		directory_label = Button(self,text='Please Choose Attachment File',command=lambda att_path : path_class.attachment(attpath),font=NORMALFONT)
+		directory_label = Button(self,text='Please Choose Attachment File',command=path_class.attachment,font=NORMALFONT)
 		file_path = Button(self,text='Choose Recipient List File',command=path_class.file_path,font=NORMALFONT)
 		save_record = Button(self,text='Save All Records and Execute',command=save_record,font=NORMALFONT)
 
