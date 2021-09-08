@@ -11,9 +11,7 @@ import os
 current_path = os.getcwd()
 webdriver_path = os.path.join(current_path,'chromedriver\chromedriver.exe')
 
-
 WEBDRIVER = webdriver.Chrome(webdriver_path)
-
 class wa_web() :
 	def __init__(self,Chrome=WEBDRIVER) :
 		self.Chrome = WEBDRIVER
@@ -25,7 +23,7 @@ class wa_web() :
 		search_box = self.Chrome.find_element_by_xpath('//div[@data-tab="3"]')
 		search_box.send_keys(user)
 		search_box.send_keys(Keys.ENTER)
-		chat_box = self.Chrome.find_element_by_xpath('//div[@data-tab="6"]')
+		chat_box = self.Chrome.find_element_by_xpath('//div[@data-tab="9"]')
 		chat_box.click() 
 		chat_box.send_keys(message)
 		chat_box.send_keys(Keys.ENTER)
@@ -40,7 +38,7 @@ class wa_web() :
 		doc_button.send_keys(filepath)
 		time.sleep(3)
 		send_doc_box = self.Chrome.find_element_by_xpath('//span[@data-icon="send"]') 
-		return send_doc_box.click() 
+		send_doc_box.click() 
 
 	def msg_only(self,user,message) :
 		search_box = self.Chrome.find_element_by_xpath('//div[@data-tab="3"]')
@@ -49,4 +47,4 @@ class wa_web() :
 		chat_box = self.Chrome.find_element_by_xpath('//div[@data-tab="6"]')
 		chat_box.click() 
 		chat_box.send_keys(message)
-		return chat_box.send_keys(Keys.ENTER) 
+		chat_box.send_keys(Keys.ENTER) 

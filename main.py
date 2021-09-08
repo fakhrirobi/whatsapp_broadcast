@@ -1,170 +1,134 @@
-
-from tkinter import *
-from tkinter import filedialog
-import os 
-import pandas as pd
-import numpy as np
-
-from functionality import Path,broadcast_functionality
-
-
-################## If you want to install this font, just download from https://fonts.google.com/specimen/Montserrat
-LARGEFONT =("Montserrat", 20) 
-NORMALFONT = ("Montserrat", 10)
+import sys
+from PyQt5.uic import loadUi
+from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QDialog, QApplication, QFileDialog, QVBoxLayout, QWidget
+from datetime import datetime
+from PyQt5 import *
+from functionality import *
 
 
 
+class MainScreen(QDialog):
+    '''
+    class for Defining Main Screen 
+    '''
+    def __init__(self):
+        super(MainScreen, self).__init__()
+        loadUi("ui_file/main_menu.ui",self)
+        self.Usage.clicked.connect(self.usage_instruction)
+        self.BroadcastWithoutAtt.clicked.connect(self.broadcastWithoutAttachment)
+        self.BroadcastWithAtt.clicked.connect(self.broadcastWithAttachment)
+        self.FullProjectLink.clicked.connect(self.projectLink)
+        
+    def usage_instruction(self):
+        usage = Usage_Screen()
+        widget.addWidget(usage)
+        widget.setCurrentIndex(widget.currentIndex()+1)
 
+    def broadcastWithoutAttachment(self):
+        broadcast_without_att= Broadcast_Without_Att_Screen()
+        widget.addWidget(broadcast_without_att)
+        widget.setCurrentIndex(widget.currentIndex()+1)
 
+    def broadcastWithAttachment(self):
+        broadcast_with_att = Broadcast_With_Att_Screen()
+        widget.addWidget(broadcast_with_att)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+        
+    def projectLink(self):
+        project_link = Full_Project_Link_Screen()
+        widget.addWidget(project_link)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+class Usage_Screen(QDialog) : 
+    def __init__(self):
+        super(Usage_Screen, self).__init__()
+        loadUi("ui_file/BroadcastWithoutDocs.ui",self)
+        
+        
+class Broadcast_Without_Att_Screen(QDialog) : 
+    '''
+    class for Defining Broadcast Without Attachment Menu 
+    '''
+    def __init__(self):
+        super(Broadcast_Without_Att_Screen, self).__init__()
+        loadUi("ui_file/BroadcastWithoutDocs.ui",self)
+        self.RunBroadcast.clicked.connect(self.run_broadcast)
+        self.backButton.clicked.connect(self.backtomenu)
+    def clicked_choose_recipient(self) : 
+        file_path = QFileDialog.getOpenFileName(self, 'Silahkan Pilih File Tujuan Broadcast')
+        print(file_path)
+        return file_path
+    def save_records(self): 
+        message_content = self.MessageBox.toPlainText()
+        return message_content
+    def run_broadcast(self):
+        recipient_path = self.clicked_choose_recipient()
+        message_content = self.save_records()
+        broadcast_functionality().sent_messages_without_attachment(message_content,recipient_path)
+    def backtomenu(self) : 
+        main_menu = MainScreen()
+        widget.addWidget(main_menu)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+class Broadcast_With_Att_Screen(QDialog) : 
+    '''
+    class for Defining Broadcast With Attachment Menu 
+    '''
+    def __init__(self):
+        #//TODO : CREATE CLASS EXPLANATION AS DOCSTRING
+        '''
+        
+        '''
+        super(Broadcast_With_Att_Screen, self).__init__()
+        loadUi("BroadcastWithDocs.ui",self)
+        self.ChooseRecipient.clicked.connect(self.clicked_choose_recipient)
+        self.ChooseAttachments.clicked.connect(self.choose_attachments)
+        self.SaveRecords.clicked.connect(self.save_records)
+        self.RunBroadcast.clicked.connect(self.run_broadcast)
+        self.backButton.clicked.connect(self.backtomenu)
+    def choose_attachments(self): 
+        #//TODO : CREATE choose_attachments EXPLANATION AS DOCSTRING
+        attachment_path = QFileDialog.getOpenFileName(self, 'Please Choose Attachment File ')
+        return attachment_path
+    def clicked_choose_recipient(self) : 
+        #//TODO : CREATE clicked_choose_recipient EXPLANATION AS DOCSTRING
+        file_path = QFileDialog.getOpenFileName(self, 'Please Choose Recipient File (.xlsx file)')
+        return file_path
+    def save_records(self): 
+        #//TODO : CREATE save_records EXPLANATION AS DOCSTRING
+        message_content = self.MessageBox.toPlainText()
+        return message_content
+        
+    def run_broadcast(self):
+        #//TODO : CREATE run_broadcast EXPLANATION AS DOCSTRING
+        recipient_path = self.clicked_choose_recipient()
+        message_content = self.save_records()
+        att_path =self.choose_attachments()
+        broadcast_functionality().sent_messages_with_attachment(message_content,recipient_path,att_path)
+        
+    def backtomenu(self) : 
+        #//TODO : CREATE backtomenu EXPLANATION AS DOCSTRING
+        main_menu = MainScreen()
+        widget.addWidget(main_menu)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+        
+        
+class Full_Project_Link_Screen(QDialog) : 
+    '''
+    class for Showing Full Project in Github
+    '''
+    def __init__(self):
+        super(Full_Project_Link_Screen, self).__init__()
+        loadUi("main_menu.ui",self)
 
-
-class MultiPurposeBroadcaster(Tk): 
-	
-	# __init__ function for class tkinterApp 
-	def __init__(self, *args, **kwargs): 
-		
-		# __init__ function for class Tk 
-		super().__init__(*args, **kwargs)
-		
-		# creating a container 
-		container = Frame(self) 
-		container.pack(side = "top", fill = "both", expand = True) 
-
-		container.grid_rowconfigure(0, weight = 1) 
-		container.grid_columnconfigure(0, weight = 1) 
-
-		# initializing frames to an empty array 
-		self.frames = {} 
-
-		# iterating through a tuple consisting 
-		# of the different page layouts 
-		for F in (MainMenu, Message_Only, Message_With_Attachment): 
-
-			frame = F(container, self) 
-
-			# initializing frame of that object from 
-			# MainMenu, page1, page2 respectively with 
-			# for loop 
-			self.frames[F] = frame 
-
-			frame.grid(row = 0, column = 0, sticky ="nsew") 
-
-		self.show_frame(MainMenu) 
-
-	# to display the current frame passed as 
-	# parameter 
-	def show_frame(self, cont): 
-		frame = self.frames[cont] 
-		frame.tkraise() 
-
-# first window frame MainMenu 
-
-class MainMenu(Frame): 
-	def __init__(self, parent, controller): 
-		Frame.__init__(self, parent) 
-		
-		
-		# label of frame Layout 2 
-		label = Label(self, text ="Multi Purpose Whatsapp Broadcaster", font = LARGEFONT) 
-		
-		# putting the grid in its place by using 
-		# grid 
-		label.grid(row = 0, column = 1, padx = 10, pady = 10) 
-
-		button1 = Button(self, text ='Broadcast Message Only', width=30,command = lambda : controller.show_frame(Message_Only),font=NORMALFONT) 
-		button2 = Button(self,text='Broadcast Message with Attachments', width=30,command= lambda : controller.show_frame(Message_With_Attachment),font=NORMALFONT)
-
-		# putting the button in its place by 
-		# using grid 
-		button1.grid(row=1,column=1, sticky=W+E) 
-		button2.grid(row=2,column=1, sticky=W+E)
-
-
-	
-		# putting the button in its place by 
-		# using grid 
-class Message_Only(Frame): 
-	# broadcast_functionality.__init__(self)
-	def __init__(self, parent, controller): 
-		# Database.__init__(self,db)
-		Frame.__init__(self, parent) 
-	
-
-		path_class = Path()
-		
-
-		def save_record() : 
-			global message
-			message = message_entry.get()
-			broadcast_functionality().sent_messages_without_attachment(message)
-
-		#broadcast_functionality Label 
-		
-
-		message_label = Label(self,text='Please Input Messages',font=NORMALFONT)
-		message_entry = Entry(self,text='Please Input Messages')
-		file_path = Button(self,wtext='Choose Recipient List File',command=path_class.file_path,font=NORMALFONT)
-		save_record = Button(self,text='Save All Records and Execute',command=save_record,font=NORMALFONT)
-		
-
-		
-		#grid a file 
-
-		message_label.grid(row=1,column=0,sticky=W+E)
-		message_entry.grid(row=1,column=1,sticky=W+E)
-		file_path.grid(row=3,column=1,sticky=W+E)
-		save_record.grid(row=4,column=1,sticky=W+E)
-		
-
-
-
-		# button to show frame 2 with text 
-		# layout2 
-		back_button = Button(self, text ="MainMenu",command = lambda : controller.show_frame(MainMenu),font=NORMALFONT) 
-		
-		back_button.grid(row=10,column=1,sticky=W+E)
-
-
-# third window frame page2 
-class Message_With_Attachment(Frame): 
-	# broadcast_functionality.__init__(self)
-	def __init__(self, parent, controller): 
-		# Database.__init__(self,db)
-		Frame.__init__(self, parent) 
-	
-		path_class = Path()
-		def save_record() : 
-			global message
-			message = message_entry.get()
-			broadcast_functionality().sent_messages_with_attachment(message)
-
-		#broadcast_functionality Label 
-		message_label = Label(self,text='Please Input Messages',font=NORMALFONT)
-		message_entry = Entry(self,text='Please Input Messages')
-		directory_label = Button(self,text='Please Choose Attachment File',command=path_class.attachment,font=NORMALFONT)
-		file_path = Button(self,text='Choose Recipient List File',command=path_class.file_path,font=NORMALFONT)
-		save_record = Button(self,text='Save All Records and Execute',command=save_record,font=NORMALFONT)
-
-
-		
-		#grid a file 
-		message_label.grid(row=1,column=0,sticky=W+E)
-		message_entry.grid(row=1,column=1,sticky=W+E)
-		directory_label.grid(row=2,column = 1,sticky=W+E)
-		file_path.grid(row=3,column=1,sticky=W+E)
-		save_record.grid(row=4,column=1,sticky=W+E)
-
-
-
-		# button to show frame 2 with text 
-		# layout2 
-		back_button = Button(self, text ="MainMenu",command = lambda : controller.show_frame(MainMenu),font=NORMALFONT) 
-		
-		back_button.grid(row=10,column=1,sticky=W+E)
-
-
-
-if __name__ == '__main__':
-	app = MultiPurposeBroadcaster() 
-	app.mainloop() 
-
+if __name__ == "__main__" :
+    app = QApplication(sys.argv)
+    welcome = MainScreen()
+    widget = QtWidgets.QStackedWidget()
+    widget.addWidget(welcome)
+    widget.setFixedHeight(1000)
+    widget.setFixedWidth(800)
+    widget.show()
+    try:
+        sys.exit(app.exec_())
+    except:
+        print("Exiting")
